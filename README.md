@@ -1,6 +1,25 @@
 # SF Argos
 
-A Chrome extension to manage multiple Salesforce orgs with quick login functionality.
+A fast, minimal Chrome extension to manage multiple Salesforce orgs with one-click auto-login.
+
+![SF Argos](https://img.shields.io/badge/Chrome-Extension-green) ![License](https://img.shields.io/badge/License-MIT-blue) ![Ads](https://img.shields.io/badge/Ads-None-brightgreen)
+
+## Why SF Argos?
+
+### vs ORGanizer for Salesforce
+
+| Feature | SF Argos | ORGanizer |
+|---------|----------|-----------|
+| **Price** | Free | Free (limited) / Paid |
+| **Ads** | None | Yes (free version) |
+| **Org Limit** | Unlimited | Limited (free version) |
+| **Encryption** | AES-256-GCM | Basic encryption |
+| **UI** | Clean, minimal, dark | Feature-heavy, cluttered |
+| **Open Source** | Yes | No |
+| **Tracking** | None | Unknown |
+| **Focus** | Login management | Swiss army knife |
+
+**SF Argos is built for developers who want one thing done well:** fast org switching with secure auto-login. No bloat, no ads, no limits.
 
 ## Features
 
@@ -24,11 +43,37 @@ A Chrome extension to manage multiple Salesforce orgs with quick login functiona
 
 ## Installation
 
-1. Clone this repository
-2. Open Chrome and go to `chrome://extensions/`
-3. Enable "Developer mode" (toggle in top right)
-4. Click "Load unpacked" and select the `sf-argos` folder
-5. The extension icon will appear in your toolbar
+### From Source (Recommended)
+
+1. **Download the extension**
+   ```bash
+   git clone https://github.com/Bilal-Bjo/SF-ARGOS.git
+   ```
+   Or download as ZIP and extract
+
+2. **Open Chrome Extensions**
+   - Go to `chrome://extensions/` in your browser
+   - Or: Chrome menu → More Tools → Extensions
+
+3. **Enable Developer Mode**
+   - Toggle "Developer mode" switch in the top right corner
+
+4. **Load the extension**
+   - Click "Load unpacked"
+   - Select the `SF-ARGOS` folder you downloaded
+   - The SF Argos icon will appear in your toolbar
+
+5. **Pin it (optional)**
+   - Click the puzzle icon in Chrome toolbar
+   - Pin SF Argos for quick access
+
+### Updating
+
+```bash
+cd SF-ARGOS
+git pull origin main
+```
+Then go to `chrome://extensions/` and click the refresh icon on SF Argos.
 
 ## Usage
 
