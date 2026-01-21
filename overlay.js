@@ -96,49 +96,51 @@
     const css = document.createElement('style');
     css.id = 'sa-css';
     css.textContent = `
-      #sa,#sa *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
-      #sa-bg{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:99998}
-      #sa-box{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:520px;max-height:540px;background:#131313;border-radius:16px;z-index:99999;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.5)}
-      #sa-q{background:#0a0a0a;border:none;padding:20px 24px;font-size:16px;color:#fff;outline:none}
-      #sa-q::placeholder{color:#3a3a3a}
-      #sa-list{flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:8px}
+      #sa,#sa *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+      #sa-bg{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:99998}
+      #sa-box{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;max-height:600px;background:#0c0c0c;border:1px solid #1a1a1a;border-radius:20px;z-index:99999;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.03),0 40px 80px -20px rgba(0,0,0,.8)}
+      #sa-q{background:transparent;border:none;border-bottom:1px solid #1a1a1a;padding:24px 28px;font-size:15px;color:#fff;outline:none;font-weight:400}
+      #sa-q::placeholder{color:#404040}
+      #sa-list{flex:1;overflow-y:auto;padding:20px}
       #sa-list::-webkit-scrollbar{width:0}
-      .sa-org{display:flex;align-items:center;padding:16px 18px;border-radius:12px;cursor:pointer;gap:16px;background:#1a1a1a;transition:all .15s}
-      .sa-org:hover,.sa-org.sel{background:#242424;transform:translateX(2px)}
-      .sa-env{font-size:10px;font-weight:700;padding:8px 12px;border-radius:8px;min-width:48px;text-align:center;letter-spacing:.5px}
+      .sa-org{display:flex;align-items:center;padding:18px 20px;margin-bottom:10px;border-radius:14px;cursor:pointer;gap:18px;background:transparent;border:1px solid #1a1a1a;transition:all .2s ease}
+      .sa-org:last-child{margin-bottom:0}
+      .sa-org:hover,.sa-org.sel{background:#141414;border-color:#2a2a2a}
+      .sa-env{font-size:9px;font-weight:600;padding:6px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:.8px}
       .sa-info{flex:1;min-width:0}
-      .sa-name{font-size:15px;color:#fff;font-weight:600;margin-bottom:4px}
-      .sa-meta{font-size:12px;color:#555;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-      .sa-btns{display:flex;gap:8px;opacity:0;transition:opacity .15s}
+      .sa-name{font-size:14px;color:#f0f0f0;font-weight:500;margin-bottom:5px;letter-spacing:-.2px}
+      .sa-meta{font-size:12px;color:#505050;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:400}
+      .sa-btns{display:flex;gap:6px;opacity:0;transition:opacity .2s}
       .sa-org:hover .sa-btns,.sa-org.sel .sa-btns{opacity:1}
-      .sa-btn{width:34px;height:34px;border:none;border-radius:8px;background:#2a2a2a;color:#555;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
-      .sa-btn:hover{background:#3a3a3a;color:#fff;transform:scale(1.08)}
-      .sa-btn.go{background:#22c55e;color:#000;font-weight:600}
-      .sa-btn.go:hover{background:#16a34a;transform:scale(1.08)}
-      .sa-empty{text-align:center;padding:50px 20px;color:#444;font-size:14px}
-      #sa-foot{display:flex;justify-content:center;gap:24px;padding:16px;border-top:1px solid #1e1e1e;background:#0f0f0f}
-      #sa-foot span{font-size:11px;color:#444}
-      #sa-add{position:absolute;top:16px;right:16px;width:36px;height:36px;border:none;border-radius:10px;background:#22c55e;color:#000;font-size:22px;font-weight:300;cursor:pointer;transition:all .15s}
-      #sa-add:hover{background:#16a34a;transform:scale(1.05)}
-      #sa-form-wrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100000;align-items:center;justify-content:center}
+      .sa-btn{width:32px;height:32px;border:none;border-radius:8px;background:#1a1a1a;color:#606060;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+      .sa-btn:hover{background:#252525;color:#fff}
+      .sa-btn.go{background:#22c55e;color:#000}
+      .sa-btn.go:hover{background:#1db954}
+      .sa-empty{text-align:center;padding:60px 20px;color:#383838;font-size:13px;font-weight:500}
+      #sa-foot{display:flex;justify-content:center;gap:28px;padding:18px;border-top:1px solid #1a1a1a}
+      #sa-foot span{font-size:11px;color:#353535;font-weight:500}
+      #sa-add{position:absolute;top:18px;right:20px;width:38px;height:38px;border:none;border-radius:10px;background:#22c55e;color:#000;font-size:24px;font-weight:300;cursor:pointer;transition:all .15s;line-height:1}
+      #sa-add:hover{background:#1db954}
+      #sa-form-wrap{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:100000;align-items:center;justify-content:center}
       #sa-form-wrap.open{display:flex}
-      #sa-form{width:440px;background:#161616;border-radius:12px;overflow:hidden}
-      #sa-family-wrap{display:flex;gap:8px}
+      #sa-form{width:480px;background:#0c0c0c;border:1px solid #1a1a1a;border-radius:20px;overflow:hidden;box-shadow:0 40px 80px -20px rgba(0,0,0,.8)}
+      #sa-family-wrap{display:flex;gap:10px}
       #sa-family-wrap select,#sa-family-wrap input{flex:1}
-      #sa-form-head{padding:20px;border-bottom:1px solid #222}
-      #sa-form-head span{font-size:15px;font-weight:600;color:#fff}
-      #sa-form-body{padding:20px;display:flex;flex-direction:column;gap:16px}
-      #sa-form-body label{display:flex;flex-direction:column;gap:6px;font-size:11px;color:#555;font-weight:500;text-transform:uppercase;letter-spacing:.5px}
-      #sa-form-body input,#sa-form-body select{width:100%;background:#0f0f0f;border:none;border-radius:8px;padding:12px;font-size:13px;color:#fff;outline:none;font-family:inherit;pointer-events:auto;-webkit-user-select:text;user-select:text}
-      #sa-form-body input::placeholder{color:#333}
-      #sa-form-body select{cursor:pointer}
-      .sa-row{display:flex;gap:12px}
+      #sa-form-head{padding:24px 28px;border-bottom:1px solid #1a1a1a}
+      #sa-form-head span{font-size:16px;font-weight:600;color:#fff;letter-spacing:-.3px}
+      #sa-form-body{padding:24px 28px;display:flex;flex-direction:column;gap:20px}
+      #sa-form-body label{display:flex;flex-direction:column;gap:8px;font-size:11px;color:#505050;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+      #sa-form-body input,#sa-form-body select{width:100%;background:#141414;border:1px solid #1a1a1a;border-radius:10px;padding:14px 16px;font-size:14px;color:#fff;outline:none;font-family:inherit;pointer-events:auto;-webkit-user-select:text;user-select:text;transition:border-color .15s}
+      #sa-form-body input:focus,#sa-form-body select:focus{border-color:#333}
+      #sa-form-body input::placeholder{color:#404040}
+      #sa-form-body select{cursor:pointer;-webkit-appearance:none;appearance:none}
+      .sa-row{display:flex;gap:14px}
       .sa-grow{flex:1}
-      #sa-form-foot{display:flex;justify-content:flex-end;gap:8px;padding:16px 20px;border-top:1px solid #222}
-      #sa-cancel{background:#222;color:#888;border:none;padding:10px 16px;border-radius:8px;font-size:12px;font-weight:500;cursor:pointer}
-      #sa-cancel:hover{background:#2a2a2a;color:#fff}
-      #sa-save{background:#22c55e;color:#000;border:none;padding:10px 20px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer}
-      #sa-save:hover{background:#16a34a}
+      #sa-form-foot{display:flex;justify-content:flex-end;gap:10px;padding:20px 28px;border-top:1px solid #1a1a1a}
+      #sa-cancel{background:#1a1a1a;color:#707070;border:none;padding:12px 20px;border-radius:10px;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}
+      #sa-cancel:hover{background:#222;color:#fff}
+      #sa-save{background:#22c55e;color:#000;border:none;padding:12px 24px;border-radius:10px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s}
+      #sa-save:hover{background:#1db954}
     `;
 
     document.head.appendChild(css);
